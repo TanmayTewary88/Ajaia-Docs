@@ -1,0 +1,15 @@
+Walkthrough Video URL
+=====================
+
+[Add your Loom or YouTube unlisted video URL here after recording]
+
+The video covers:
+1. Demo account login flow
+2. Creating a new document
+3. Rich text editing features
+4. File import (.txt, .md, .docx)
+5. Sharing a document with another user
+6. Demonstrating view-only vs edit access in two browser windows
+7. File attachments
+8. Architecture and implementation decisions
+9. AI workflow discussion
