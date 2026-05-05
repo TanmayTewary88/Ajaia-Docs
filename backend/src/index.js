@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 initializeDatabase();
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || ['http://localhost:3000', 'http://localhost:5173', 'https://ajaia-docs-gamma.vercel.app'],
+  origin: process.env.FRONTEND_URL || ['http://localhost:3000', 'http://localhost:5173', 'https://ajaia-docs-kohl.vercel.app/'],
   credentials: true
 }));
 app.use(express.json({ limit: '5mb' }));
