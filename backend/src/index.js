@@ -13,10 +13,12 @@ const PORT = process.env.PORT || 3001;
 // Initialize DB
 initializeDatabase();
 
+// CORS configuration - FIXED (removed trailing slash)
 app.use(cors({
-  origin: process.env.FRONTEND_URL || ['http://localhost:3000', 'http://localhost:5173', 'https://ajaia-docs-kohl.vercel.app/'],
+  origin: process.env.FRONTEND_URL || ['http://localhost:3000', 'http://localhost:5173', 'https://ajaia-docs-kohl.vercel.app'],
   credentials: true
 }));
+
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -30,14 +32,8 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Serve frontend in production
-if (process.env.NODE_ENV === 'production') {
-  const frontendPath = path.join(__dirname, '../../frontend/dist');
-  app.use(express.static(frontendPath));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(frontendPath, 'index.html'));
-  });
-}
+// REMOVED frontend serving since frontend is on Vercel
+// Your backend is now API-only
 
 // Global error handler
 app.use((err, req, res, next) => {
